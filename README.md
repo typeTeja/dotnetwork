@@ -9,6 +9,7 @@ A modern, responsive coming soon page for Dot Network, containerized with Docker
 - Email notification signup form
 - Social media links
 - Optimized for performance with Nginx
+- Runs on port 8080 by default
 
 ## Prerequisites
 
@@ -26,7 +27,7 @@ docker build -t dotnetwork-coming-soon .
 ### Run the Container
 
 ```bash
-docker run -d -p 8080:80 --name dotnetwork dotnetwork-coming-soon
+docker run -d -p 8080:8080 --name dotnetwork dotnetwork-coming-soon
 ```
 
 ### Access the Application
@@ -52,7 +53,7 @@ docker rm dotnetwork
 
 ## Building for Production
 
-The Dockerfile is already configured for production with Nginx. The application is served on port 80 inside the container, which is then mapped to port 8080 on your host machine.
+The Dockerfile is configured for production with Nginx. The application is served on port 8080 inside the container, which is then mapped to port 8080 on your host machine.
 
 ## Customization
 
