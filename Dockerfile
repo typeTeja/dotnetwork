@@ -1,25 +1,11 @@
-# Build stage
+# Stage 1: Build environment
 FROM node:18-alpine as build
-
 WORKDIR /app
-
-# Install dependencies
-COPY package*.json ./
-RUN npm install
-
-# Copy project files
 COPY . .
 
-# Build the application
-RUN npm run build
-
-# Production stage
+# Stage 2: Production environment with Nginx
 FROM nginx:alpine
-
-# Copy built assets from build stage
-COPY --from=build /app/dist /usr/share/nginx/html
-
-# Copy nginx config
+COPY --from=build /app/index.html /usr/share/nginx/html/
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # Expose port 80

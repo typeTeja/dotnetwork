@@ -1,53 +1,68 @@
-# Dot Network
+# Dot Network - Coming Soon
 
-A modern, responsive static website for Dot Network, a personal app deployment platform similar to Render or Railway.
+A modern, responsive coming soon page for Dot Network, containerized with Docker and served with Nginx.
 
 ## Features
 
-- 🚀 Modern, clean, and responsive design
-- 📱 Mobile-first approach
-- 🎨 Built with Tailwind CSS
-- 🐳 Docker containerization
-- 🔄 Auto-reload in development
-- 📦 Optimized production build
+- Clean, modern design with responsive layout
+- Countdown timer to launch date
+- Email notification signup form
+- Social media links
+- Optimized for performance with Nginx
 
 ## Prerequisites
 
 - [Docker](https://www.docker.com/get-started)
-- [Docker Compose](https://docs.docker.com/compose/install/)
-- [Node.js](https://nodejs.org/) (for local development without Docker)
+- [Git](https://git-scm.com/) (optional, for version control)
 
 ## Getting Started
 
-### Development with Docker (Recommended)
+### Build the Docker Image
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/dotnetwork.git
-   cd dotnetwork
-   ```
+```bash
+docker build -t dotnetwork-coming-soon .
+```
 
-2. Start the development server:
-   ```bash
-   docker-compose up -d
-   ```
+### Run the Container
 
-3. Open your browser and visit:
-   ```
-   http://localhost:8080
-   ```
+```bash
+docker run -d -p 8080:80 --name dotnetwork dotnetwork-coming-soon
+```
 
-### Development without Docker
+### Access the Application
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/dotnetwork.git
-   cd dotnetwork
-   ```
+Open your browser and navigate to:
+```
+http://localhost:8080
+```
 
-2. Install dependencies:
-   ```bash
-   npm install
+## Stopping the Container
+
+To stop the container:
+
+```bash
+docker stop dotnetwork
+```
+
+To remove the container:
+
+```bash
+docker rm dotnetwork
+```
+
+## Building for Production
+
+The Dockerfile is already configured for production with Nginx. The application is served on port 80 inside the container, which is then mapped to port 8080 on your host machine.
+
+## Customization
+
+1. Update the countdown date in `index.html` by modifying the `launchDate` in the JavaScript section.
+2. Update the social media links in the HTML.
+3. Customize the colors and styling in the CSS variables at the top of the `<style>` tag.
+
+## License
+
+This project is open source and available under the [MIT License](LICENSE).
    ```
 
 3. Start the development server:
